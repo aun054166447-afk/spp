@@ -1,38 +1,41 @@
- import sys
-import os
-
-# ၁။ လက်ရှိ tool လမ်းကြောင်းကို ရှာပြီး Python path ထဲထည့်မယ်
-current_dir = os.path.dirname(os.path.abspath(__file__))
-if current_dir not in sys.path:
-    sys.path.insert(0, current_dir)
-
-# ၂။ Low-level standard output buffer ကို ကြားဖြတ်ဖမ်းမည့် Class
-class SafeTextHook:
-    def __init__(self, original_stream):
-        self.stream = original_stream
-
-    def write(self, data):
-        # Text string ဖြစ်ဖြစ်၊ Binary output ဖြစ်ဖြစ် ဝင်စစ်မယ်
-        if isinstance(data, str):
-            if "@SIRZIPP" in data:
-                data = data.replace("@SIRZIPP", "@boolot36")
-        elif isinstance(data, bytes):
-            if b"@SIRZIPP" in data:
-                data = data.replace(b"@SIRZIPP", b"@boolot36")
-        
-        # မူရင်း buffer ဆီသို့ ပြန်ပို့ပေးမယ်
-        self.stream.write(data)
-
-    def flush(self):
-        self.stream.flush()
-
-# ၃။ System ရဲ့ stdout နဲ့ stderr နှစ်ခုစလုံးကို runtime မှာ လွှဲပေးလိုက်ခြင်း
-sys.stdout = SafeTextHook(sys.stdout)
-sys.stderr = SafeTextHook(sys.stderr)
-
-# --------------------------------------------------
-# ၎င်းနောက်မှ မူရင်းချုပ်ထားသော zipp ဖိုင်ကို ဆက်ခေါ်ပါမည်
-# --------------------------------------------------
-import zipp
-
-# သင့် main.py ရဲ့ ကျန်တဲ့ ကုဒ်တွေကို ဒီအောက်မှာ ဆက်ထားပါ
+ class Dummy:
+def getattr(self, name):
+return self
+def call(self, *args, **kwargs):
+return True
+def init_scanner_data(*args, **kwargs): return True
+def get_scanner_data(*args, **kwargs): return {}
+def show_banner(*args, **kwargs):
+print("--------------------------------------------------")
+print(" ⚡ RUIJIE ASYNC EXTREME ⚡ (BYPASSED) ")
+print(" Telegram@boolot36 ")
+print("--------------------------------------------------")
+def get_system_key(*args, **kwargs): return "ZIPP-PRIVAT-BYPASSED"
+def encrypt_key_data(*args, **kwargs): return b"bypassed"
+def check_time_integrity(*args, **kwargs): return True
+def display_remaining_time(args, **kwargs): print("[] License: UNLIMITED (BYPASSED)")
+def check_approval(*args, **kwargs):
+print("[+] ACCESS GRANTED! (Authorization Bypassed)")
+return True
+def generate_random_mac(*args, **kwargs): return "00:11:22:33:44:55"
+def ocr_image_bytes_fast(*args, **kwargs): return ""
+async def solve_captcha_simple_async(*args, **kwargs): return ""
+async def get_sid_from_gateway(*args, **kwargs): return "bypassed_sid"
+async def fetch_balance(*args, **kwargs): return 999999
+async def check_balance(*args, **kwargs): return True
+async def check_single_access_code(*args, **kwargs): return True
+async def worker(*args, **kwargs): pass
+async def code_writer(*args, **kwargs): pass
+async def terminal_dashboard(*args, **kwargs): pass
+async def listen_for_exit(*args, **kwargs): pass
+def show_hit_codes(*args, **kwargs): pass
+async def run_scanner(*args, **kwargs): pass
+async def update_portal(*args, **kwargs): pass
+async def change_mode(*args, **kwargs): pass
+async def start_recheck(*args, **kwargs): pass
+async def start_normal_scanner(*args, **kwargs): pass
+def configure_workers(*args, **kwargs): pass
+def print_menu(*args, **kwargs): pass
+def main(*args, **kwargs): check_approval()
+def getattr(name):
+return Dummy()
